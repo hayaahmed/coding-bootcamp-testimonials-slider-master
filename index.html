@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="maain.css">
+
+  <title>Frontend Mentor | Coding Bootcamp Testimonials Slider</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="codding-slider" id="root">
+    <div class="cont">
+      <div class="left">
+        <img class="main-bg" src="images/pattern-bg.svg" alt="">
+        <div class="img-slider">
+          <img :src="selected" alt="">
+          <button class="sliderbtn"><span @click="moveprev" class="prev"><img src="images/icon-prev.svg"
+                alt=""></span><span @click="movenext" class="next"><img src="images/icon-next.svg"
+                alt=""></span></button>
+        </div>
+      </div>
+      <div class="right">
+        <!-- <img class="quate" src="" alt=""> -->
+        <p class="quatetext">
+          {{quatetext}}
+        </p>
+        <div class="persnaol-info">
+          <span class="name">{{name}}</span>
+          <span class="job">{{job}}</span>
+        </div>
+      </div>
+      <img src="images/pattern-curve.svg" alt="" class="curveshape">
+    </div>
+  </div>
+
+  <!-- “ If you want to lay the best foundation possible I’d recommend taking this course.
+  The depth the instructors go into is incredible. I now feel so confident about
+  starting up as a professional developer. ”
+
+  John Tarkpor
+  Junior Front-end Developer -->
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">haya</a>.
+  </div>
+  <script src="vuejs/vue.js"></script>
+  <script>
+    var ve = new Vue({
+      el: "#root",
+      data: {
+        array1: [
+          {
+            id: 0,
+            name: "Tanya Sinclair",
+            job: "UX Engineer",
+            testimonial: "“ I`ve been interested in coding for a while but never taken the jump, until now. I couldn`t recommend this course enough. I`m now in the job of my dreams and so excited about the future. ”",
+            image: "./images/image-tanya.jpg"
+          },
+          {
+            id: 1,
+            name: "John Tarkpor",
+            job: "Junior Front-end Developer",
+            testimonial: "“ If you want to lay the best foundation possible I'd recommend taking this course. The depth the instructors go into is incredible. I now feel so confident about starting up as a professional developer ”",
+            image: "./images/image-john.jpg"
+          },
+        ],
+        index: 0,
+        selected: './images/image-tanya.jpg',
+        quatetext: '“ I’ve been interested in coding for a while but never taken the jump, until now.I couldn’t recommend this course enough. I’m now in the job of my dreams and so excited about the future. ”'
+        , name: "Tanya Sinclair",
+        job: "UX Engineer"
+
+      },
+      methods: {
+        movenext() {
+          this.index = this.index + 1;
+          if (this.index == this.array1.length) {
+            this.index = 0;
+            // console.log(this.index);
+            this.name = this.array1[this.index].name;
+            this.job = this.array1[this.index].job;
+            this.selected = this.array1[this.index].image;
+            this.quatetext = this.array1[this.index].testimonial;
+          }
+          else {
+            // console.log(this.array1.length);
+            this.name = this.array1[this.index].name;
+            this.job = this.array1[this.index].job;
+            this.selected = this.array1[this.index].image;
+            this.quatetext = this.array1[this.index].testimonial;
+          }
+        },
+        moveprev() {
+          this.index = this.index - 1;
+          if (this.index < 0) {
+            this.index = (this.array1.length - 1);
+            // console.log(this.index);
+            this.name = this.array1[this.index].name;
+            this.job = this.array1[this.index].job;
+            this.selected = this.array1[this.index].image;
+            this.quatetext = this.array1[this.index].testimonial;
+          }
+          else {
+            // console.log(this.array1.length);
+            this.name = this.array1[this.index].name;
+            this.job = this.array1[this.index].job;
+            this.selected = this.array1[this.index].image;
+            this.quatetext = this.array1[this.index].testimonial;
+          }
+        },
+      },
+      mounted() {
+        document.onkeydown = (e) => {
+          e = e || window.event;
+          if (e.keyCode === 38 || e.keyCode === 39) {
+            console.log('up arrow pressed')
+            this.movenext();
+
+          } else if (e.keyCode === 40 || e.keyCode === 37) {
+            console.log('down arrow pressed || left')
+            this.moveprev();
+          }
+          // else if (e.keyCode === 37) {
+          //   console.log('left arrow pressed')
+          // } else if (e.keyCode === 39) {
+          //   console.log('right arrow pressed')
+          // }
+        }
+      }
+
+    })
+  </script>
+</body>
+
+</html>

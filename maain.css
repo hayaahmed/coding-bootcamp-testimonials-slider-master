@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+.codding-slider {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.curveshape {
+    position: absolute;
+    bottom: 100px;
+    left: 10px;
+    width: 400px;
+}
+
+.cont {
+    /* width: 1100px; */
+    margin: 100px;
+    display: flex;
+    flex-direction: row-reverse;
+
+}
+
+.left {
+    position: relative;
+    flex-basis: 1;
+}
+
+.left .main-bg {
+
+    z-index: -1;
+}
+
+.left .img-slider img {
+    z-index: 5;
+    position: absolute;
+    /* width: 400px; */
+    /* height: 400px; */
+    top: 50px;
+    right: 60px;
+}
+
+.left .img-slider .sliderbtn {
+    width: 100px;
+    height: 40px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    background-color: white;
+    border-radius: 20px;
+    border: none;
+    z-index: 100;
+    position: absolute;
+    bottom: 50px;
+    left: 150px;
+}
+
+.left .img-slider .sliderbtn .prev {
+    position: absolute;
+    cursor: pointer;
+    z-index: 120;
+    bottom: 80px;
+    left: 90px;
+}
+
+.left .img-slider .sliderbtn .next {
+    position: absolute;
+    cursor: pointer;
+    z-index: 120;
+    bottom: 80px;
+    left: 140px;
+}
+
+.right {
+    width: 400px;
+    padding-top: 130px;
+}
+
+.right {
+    background-image: url("images/pattern-quotes.svg");
+    background-repeat: no-repeat;
+    background-size: 18% 18%;
+    background-position: 50px 80px;
+}
+
+.right .quatetext {
+    margin-top: 20px;
+    color: hsl(240, 38%, 20%);
+    line-height: 1.5;
+    font-size: 19px;
+    margin-bottom: 20px;
+}
+
+.right .persnaol-info .name {
+    color: hsl(240, 38%, 20%);
+    font-weight: 700;
+    font-size: 15px;
+    margin-right: 10px;
+}
+
+
+.right .persnaol-info .job {
+    color: hsl(240, 18%, 77%);
+    font-weight: 300;
+    font-size: 15px;
+}
